@@ -3,6 +3,7 @@ from scrapy.settings import Settings
 from hh_parser.spiders.headhunter import HeadhunterSpider
 from dotenv import load_dotenv
 
+
 if __name__ == '__main__':
     load_dotenv('.env')
     crawler_settings = Settings()

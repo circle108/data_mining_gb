@@ -10,6 +10,7 @@ import os
 import pymongo
 
 class HhParserPipeline:
+
     def process_item(self, item, spider):
         return item
 
