@@ -54,7 +54,7 @@ class HeadhunterSpider(scrapy.Spider):
     def company_parser(self, response, **kwargs):
         loader = HhunterLoader(response=response)
         for key, value in self.xpath_company.items():
-            loader.add_value(key, value)
+            loader.add_xpath(key, value)
         item = loader.load_item()
         yield item
         yield from self.active_vacancy(response)
