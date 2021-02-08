@@ -5,7 +5,6 @@
 
 import scrapy
 
-
 class HhParserItem(scrapy.Item):
     # define the fields for your item here like:
     # name = scrapy.Field()
@@ -24,4 +23,19 @@ class HhunterItem(scrapy.Item):
     company_site = scrapy.Field()
     company_description = scrapy.Field()
     active_name = scrapy.Field()
+
+class Insta(scrapy.Item):
+    _id = scrapy.Field()
+    date_parse = scrapy.Field()
+    data = scrapy.Field()
+
+
+class InsTag(Insta):
+    pass
+
+class InsPost(Insta):
+    images = scrapy.Field()
+
+class InsUser(Insta):
+    pass
 

@@ -2,6 +2,7 @@ from scrapy.loader import ItemLoader
 from .items import HhunterItem
 from itemloaders.processors import TakeFirst
 
+
 def join_item(item):
     return "".join(item)
 
