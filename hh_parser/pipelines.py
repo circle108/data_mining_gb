@@ -8,6 +8,8 @@
 from itemadapter import ItemAdapter
 import os
 import pymongo
+from scrapy import Request
+from scrapy.pipelines.images import ImagesPipeline
 
 class HhParserPipeline:
 
@@ -20,7 +22,15 @@ class MongoSavePipeline:
         self.db = pymongo.MongoClient(os.getenv('DATABASE'))
 
     def process_item(self, item, spider):
-        db = self.db['HH_020221']
-        collection = db[spider.name]
+        db = self.db['Instagram']
+        collection = db[type(item).__name__]
         collection.insert_one(item)
         return item
+
+class InsImages(ImagesPipeline):
+    def get_media_requests(self, item, info):
+        yield Request(item.get('images'))
+    #
+    # def item_completed(self, results, item, info):
+    #     item = [itm[1] for itm in results]
+    #     return item
