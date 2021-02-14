@@ -2,7 +2,6 @@
 #
 # See documentation in:
 # https://docs.scrapy.org/en/latest/topics/items.html
-
 import scrapy
 
 class HhParserItem(scrapy.Item):
@@ -37,5 +36,15 @@ class InsPost(Insta):
     images = scrapy.Field()
 
 class InsUser(Insta):
+    pass
+
+class InsFollowers(scrapy.Item):
+    _id = scrapy.Field()
+    id = scrapy.Field()
+    name = scrapy.Field()
+    user_id = scrapy.Field()
+    user_name = scrapy.Field()
+
+class InstaUser(Insta):
     pass
 

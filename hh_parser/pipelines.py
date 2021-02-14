@@ -22,14 +22,14 @@ class MongoSavePipeline:
         self.db = pymongo.MongoClient(os.getenv('DATABASE'))
 
     def process_item(self, item, spider):
-        db = self.db['Instagram']
+        db = self.db['Instagram_1402']
         collection = db[type(item).__name__]
         collection.insert_one(item)
         return item
 
-class InsImages(ImagesPipeline):
-    def get_media_requests(self, item, info):
-        yield Request(item.get('images'))
+# class InsImages(ImagesPipeline):
+#     def get_media_requests(self, item, info):
+#         yield Request(item.get('images'))
     #
     # def item_completed(self, results, item, info):
     #     item = [itm[1] for itm in results]

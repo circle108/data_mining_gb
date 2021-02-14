@@ -1,6 +1,6 @@
-from scrapy.loader import ItemLoader
 from .items import HhunterItem
 from itemloaders.processors import TakeFirst
+from scrapy.loader import ItemLoader
 
 
 def join_item(item):
