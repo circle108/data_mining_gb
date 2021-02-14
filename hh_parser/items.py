@@ -2,9 +2,7 @@
 #
 # See documentation in:
 # https://docs.scrapy.org/en/latest/topics/items.html
-
 import scrapy
-
 
 class HhParserItem(scrapy.Item):
     # define the fields for your item here like:
@@ -24,4 +22,29 @@ class HhunterItem(scrapy.Item):
     company_site = scrapy.Field()
     company_description = scrapy.Field()
     active_name = scrapy.Field()
+
+class Insta(scrapy.Item):
+    _id = scrapy.Field()
+    date_parse = scrapy.Field()
+    data = scrapy.Field()
+
+
+class InsTag(Insta):
+    pass
+
+class InsPost(Insta):
+    images = scrapy.Field()
+
+class InsUser(Insta):
+    pass
+
+class InsFollowers(scrapy.Item):
+    _id = scrapy.Field()
+    id = scrapy.Field()
+    name = scrapy.Field()
+    user_id = scrapy.Field()
+    user_name = scrapy.Field()
+
+class InstaUser(Insta):
+    pass
 

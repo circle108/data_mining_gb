@@ -31,6 +31,7 @@ class HeadhunterSpider(scrapy.Spider):
         'active_name': '//a[contains(@data-qa,"vacancy-serp__vacancy-title")]//text()',
         'active_url': '/a[contains(@data-qa,"employer-page")]/@href',
     }
+
     def parse(self, response, **kwargs):
         pagination_list = response.xpath(self.xpath['pagination'])
         for pag in pagination_list:
@@ -53,7 +54,7 @@ class HeadhunterSpider(scrapy.Spider):
     def company_parser(self, response, **kwargs):
         loader = HhunterLoader(response=response)
         for key, value in self.xpath_company.items():
-            loader.add_value(key, value)
+            loader.add_xpath(key, value)
         item = loader.load_item()
         yield item
         yield from self.active_vacancy(response)
